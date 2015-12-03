@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+</head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+
+<BR><BR>
+<div align="center"><font size=5>Tutaj możesz sprawdzić wszystkich użytkowników korzystających z tego forum</font></div>
+
+<BR><BR>
+<div ng-app="lista_uzytk" ng-controller="kontroler_uzytk">
+
+	<ul>
+		<li ng-repeat="x in uzytkownicy">
+			<td> {{ x.Name + ' ' + x.Surname }} </td>
+
+			<BR>
+			<div ng-hide=x.pokaz_wiecej>{{'Miasto: ' + x.City + ', Państwo: ' + x.Country + ' Wiek: ' + x.Age}}</div>
+			<button type="button" ng-show=x.pokaz_wiecej ng-click="zmien_pokazywanie(x.id)">Pokaz więcej</button>
+			<button type="button" ng-hide=x.pokaz_wiecej ng-click="zmien_pokazywanie(x.id)">Pokaz mniej</button>
+			<BR><BR>
+		</li>
+	</ul>
+
+</div>
+
+<script>
+
+	var lista_uzytk_app = angular.module('lista_uzytk', []).controller('kontroler_uzytk', function($scope) {
+
+		$scope.uzytkownicy = [
+			{id:'0', Name:'Alfreds', Surname:'Futterkiste', City:'Berlin', Country:'Germany', Age:'21', pokaz_wiecej:'false'},
+			{id:'1', Name:'Berglunds', Surname:'Futterkiste', City:'Lulea', Country:'Sweden', Age:'55', pokaz_wiecej:'false'},
+			{id:'2', Name:'Ernest', Surname:'Handel', City:'Graz', Country:'Austria', Age:'3', pokaz_wiecej:'false'}
+		];
+
+		$scope.zmien_pokazywanie = function(numer_rekordu){
+			$scope.uzytkownicy[numer_rekordu].pokaz_wiecej = !$scope.uzytkownicy[numer_rekordu].pokaz_wiecej;
+		}
+	
+	});
+
+</script>
+
+
+</body>
+</html>

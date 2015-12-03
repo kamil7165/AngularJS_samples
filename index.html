@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html PUBLIC>
+<html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<title>Projekt forum z AngularJS</title>
+</head>
+
+	<body bgcolor="black" ng-app="AngularProject">
+
+		<div style="text-align: center;"><big style="color: rgb(155, 0, 0);"><font size="6">Forum AngularJS</font>
+
+		<br><br>
+
+		<br>
+		<div>
+			<ul> 
+				<a href="posty.html" style="position: absolute; width: 150px; height: 45px; top: 200px; left: 300px;">Posty</a>
+			</ul> 
+ 		</div> 
+
+		<br>
+		<div>
+			<ul>
+				  <a href="samouczek.html" style="position: absolute; width: 150px; height: 45px; top: 200px; right: 300px;">Samouczek</a>
+			</ul>
+		</div>
+
+		<br>
+		<div>
+			<ul>
+				<a href="uzytkownicy.html" style="position: absolute; width: 150px; height: 45px; top: 350px; left: 300px;">Użytkownicy</a>
+			</ul>
+		</div>
+
+		<br>
+		<div>
+			<ul>
+				<a href="o_forum.html" style="position: absolute; width: 150px; height: 45px; top: 350px; right: 300px;">O Forum</a>
+			</ul>
+
+		</div>
+
+
+		<br><br>
+		<div style="text-align: left; position: absolute; left: 8px; top: 48px;"></div>
+		<div style="text-align: left;"></div>
+		</div>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.goTo = function(path){
+				$location.path(path);
+			}
+		});
+	</script>
+
+</body>
+</html>
+
+
+
